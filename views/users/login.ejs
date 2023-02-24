@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../component/link.ejs") -%>
+        <title>Document</title>
+</head>
+
+<body>
+    <%- include("../component/navbar.ejs") -%>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                        <h2 class="text-center text-danger"> Login Here </h2>
+                    <form action="/users/login" method="post">
+                        <div class="col">
+                            <label> Email </label>
+                            <input type="email" class="form-control" name="xemail" autofocus />
+                        </div>
+
+                        <div class="col">
+                            <label> Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="xpassword" />
+                                <span class="input-group-text" style="cursor:pointer"><i id="eyes"
+                                        class="fa fa-eye"></i></span>
+
+                            </div>
+                        </div>
+                        <br />
+                        <input type="submit" value="Login" class="btn btn-outline-danger"/>&nbsp&nbsp
+                        <a href="/Users/registration"  class="btn btn-outline-primary">Register Here</a>
+                        <a href="/Users/forget"  class="btn btn-outline-primary">Forget password</a>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

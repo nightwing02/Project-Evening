@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%- include("../component/link.ejs");  %>
+        <title>Document</title>
+</head>
+
+<body>
+    <%- include("../component/navbar.ejs") -%>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+
+                    <h2 class="mt-5"> New Member Registration </h2>
+                    <% if(typeof(Err)!='undefined') { %> <div class='alert alert-danger'><%= Err %></div>%> <% } %>
+                    <form action="/Users/Insert" method="post" enctype="multipart/form-data">
+                        <div class="col">
+                            <label> Full-Name</label>
+                            <input type="text" class="form-control" name="xname" autofocus />
+                            <% if(err!=0 && typeof(err.xname)!='undefined') { %> <div class='alert alert-danger'><%= err.xname.msg %></div>%> <% } %>
+                        </div>
+
+                        <div class="col">
+                            <label> Mobile No. </label>
+                            <input type="tel" class="form-control" name="xmobile" />
+                            <% if(err!=0 && typeof(err.xmobile)!='undefined') { %> <div class='alert alert-danger'><%= err.xmobile.msg %></div><% } %>
+                        </div>
+
+                        <div class="col">
+                            <label> Email </label>
+                            <input type="email" class="form-control" name="xemail" />
+                            <% if(err!=0 && typeof(err.xemail)!='undefined') { %> <div class='alert alert-danger'><%= err.xemail.msg %></div><% } %>
+
+                        </div>
+
+                        <div class="col">
+                            <label> Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="xpassword" />
+                                <span class="input-group-text" style="cursor:pointer"><i id="eyes"
+                                        class="fa fa-eye"></i></span>
+
+                            </div>
+                            <% if(err!=0 && typeof(err.xpassword)!='undefined') { %> <div class='alert alert-danger'><%= err.xpassword.msg %></div><% } %>
+
+                        </div>
+                        
+
+                        <div class="col">
+                            <label>Confirm-Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="xconfirm" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label> Image </label>
+                            <input type="file" class="form-control" name="ximg" />
+
+                            <% if(err!=0 && typeof(err.xemail)!='undefined') { %> <div class='alert alert-danger'><%= err.xemail.msg %></div><% } %>
+
+                        </div>
+                        <% if(err!=0 && typeof(err.xconfirm)!='undefined') { %> <div class='alert alert-danger'><%= err.xconfirm.msg %></div><% } %>
+                        <br />
+                        <input type="submit" value="Register" class="btn btn-outline-danger"/>&nbsp&nbsp
+                        <a href="/Users/" class="btn btn-outline-primary">login here</a>
+                    </form>
+                    
+                </div>
+                <div class="col-sm-4"></div>
+
+            </div>
+        </div>
+        
+</body>
+
+</html>
